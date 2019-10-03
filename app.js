@@ -43,7 +43,7 @@ app.post('/catchr', function (req, res, next) {
 })
 
 //Define port for app to listen on
-var port = 3434;
+var port = 80;
 //This keeps the app listening for traffic on the port defined above (var port =*)
 app.listen(port, () => {
     console.log("Server listening on port " + port);
