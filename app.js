@@ -3,7 +3,6 @@ var express = require("express");
 const path = require('path');
 var app = express();
 const router = express.Router();
-require('dotenv').config()
 
 app.set('view engine', 'hbs');
 
