@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+	<title>Figeur</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+	<!-- main css -->
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+	<!-- <style type="text/css">
+	
+	</style> -->
+</head>
+
+<body>
+
+	<!-- ================Offcanvus Menu Area =================-->
+	<div class="side_menu">
+		<ul class="list menu_right">
+			<li>
+				<a href="index.html">Home</a>
+			</li>
+			<li>
+				<a href="about-us.html">About</a>
+			</li>
+			<li>
+				<a href="#">Talent</a>
+				<ul class="list">
+					<li>
+						<a href="project.html">Actors</a>
+					</li>
+					<li>
+						<a href="project-details.html">Models</a>
+					</li>
+					<li>
+						<a href="project.html">Musicians</a>
+					</li>
+					<li>
+						<a href="project-details.html">Filmmakers</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="service.html">Stories</a>
+			</li>
+			<li>
+				<a href="service.html">Characters</a>
+			</li>
+			<li>
+				<a href="service.html">Image</a>
+			</li>
+		</ul>
+	</div>
+	<!--================End Offcanvus Menu Area =================-->
+
+	<!--================Canvus Menu Area =================-->
+	<div class="canvus_menu">
+		<div class="container">
+			<div class="float-right">
+				<div class="toggle_icon" title="Menu">
+					<span></span>
+				</div>
+			</div>
+			<div class="float-left">
+				<div class="toggle_icon_figeur" title="Home">
+					<span></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--================End Canvus Menu Area =================-->
+
+	<div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
+		<div class="overlay"></div>
+		<div class="container">
+		  <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+			<div class="col-md-10 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+				<h1 class="mb-0">Memes.</h1>
+				<div class="s129">
+				</div>
+			  	<div class="mouse">
+							  <a href="#" class="mouse-icon">
+								  <div class="mouse-wheel"><span class="ion-ios-arrow-down"></span></div>
+							  </a>
+				</div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	{{#each items}}
+	  	<div class="wrapper style2">
+			<article id="main" class="imgcontainer special">
+				<a href="#" class="image featured"><img src="{{this.link}}" alt="" /></a>
+			</article>
+		</div>
+	{{/each}}
+	<!-- Optional JavaScript -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/theme.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
