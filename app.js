@@ -24,10 +24,16 @@ app.use('/', test);
 const s3 = require('./pages/s3/s3');
 app.use('/', s3);
 
+const seo = require('./pages/seo/seo');
+app.use('/', seo);
+
 //APIs
 
 const fileupload = require('./apis/fileupload');
 app.use('/', fileupload);
+
+const post = require('./apis/post');
+app.use('/', post);
 
 //const catchr = require('./apis/catchr');
 //app.use('/', catchr);

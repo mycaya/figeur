@@ -3,11 +3,6 @@ const router = express.Router()
 const aws = require('aws-sdk')
 const multer = require('multer')
 const multerS3 = require('multer-s3')
-var mongo = require('mongodb').MongoClient;
-var app = express();
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded())
-app.use(bodyParser.json())
 
 const s3 = new aws.S3({
   accessKeyId: 'AKIA6NNN2THAIUWJYZJL',
@@ -43,18 +38,18 @@ router.post('/upload', upload.array('inputFile', 3), (req, res) => {
     const db = client.db('figeur')
     const collection = db.collection('memes')
             let doc = {
-                link: "https://figeur.s3.us-east-2.amazonaws.com/"+req.files[0].originalname
+                link: "https://figeur.s3.us-east-2.amazonaws.com/"+req.file.originalname
             };
-            console.log(doc);
             collection.insert(doc, (err, doc) => {
-            //res.json(doc);
+            res.json(doc);
             });
+
 });
-res.redirect("/");
-  /*res.status(201).json({
+
+  res.status(201).json({
     message: 'Successfully uploaded ' + req.files.length + ' files!',
     files: req.files
-  })*/
+  })
 })
 
 module.exports = router
@@ -121,15 +116,13 @@ router.post('/api/upload', function (req, res, next) {
       
       // Grabs your file object from the request.
       const file = req.files.element2;
-
-
-      console.log("flie!:" + file);
+      console.log(file);
       
       // Begins the upload to the AWS S3
       uploadToS3(file);
     });
-    //Commented out to avoid res.json
-    //req.pipe(busboy);
+
+    req.pipe(busboy);
   })
 
   module.exports = router
