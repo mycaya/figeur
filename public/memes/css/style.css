@@ -112,7 +112,7 @@
     transition: all 0.3s ease 0s;
     background: transparent;
     padding: 20px;
-    z-index: 9999; }
+    z-index: 9997; }
     @media (max-width: 575px) {
       .canvus_menu .toggle_icon_figeur {
         left: 30px; } }
@@ -159,7 +159,45 @@
       background: #ffffff; }
       .canvus_menu .toggle_icon_figeur.blog span:after, .canvus_menu .toggle_icon.blog span:before {
         background: #ffffff; }
-        
+
+        .footer {
+          background: transparent;
+          position: fixed;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 50px;
+          z-index: 9998;
+      }    
+      
+.canvus_menu_bottom {
+          position: fixed;
+          left: 0px;
+          right: 0;
+          bottom: 0px;
+          z-index: 10;
+          width: 100%;
+          padding-top: 30px;
+          padding-bottom: 30px; }
+          .canvus_menu_bottom .flaticon-upload {
+            cursor: pointer;
+            position: fixed;
+            height: 20px;
+            width: 30px;
+            bottom: 55px;
+            left: 50px;
+            -webkit-transition: all 0.3s ease 0s;
+            -moz-transition: all 0.3s ease 0s;
+            -o-transition: all 0.3s ease 0s;
+            transition: all 0.3s ease 0s;
+            background: transparent;
+            padding: 20px;
+            z-index: 9999; }
+            @media (max-width: 575px) {
+              .canvus_menu_bottom .flaticon-upload {
+                left: 30px;
+                bottom: 80px } }
+
 .side_menu {
   position: fixed;
   right: -33%;
