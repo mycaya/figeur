@@ -31,7 +31,7 @@ font-style: normal;
 margin-left: -20px;
 }
 
-.flaticon-upload:before { content: "\f100"; color: black; transform: scale(1, .1);font-size: 33px;}
+.flaticon-upload:before { content: "\f100"; font-weight: normal; color: black; transform: scale(1, .1);font-size: 33px;}
 .flaticon-share:before { content: "\f101"; }
 .flaticon-more:before { content: "\f102"; }
 .flaticon-more-1:before { content: "\f103"; }

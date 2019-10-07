@@ -76,16 +76,16 @@
 		</div>
 	</div>
 <div class="footer">
-	<div class="canvus_menu_bottom">
-		<div class="container">
-			<div class="float-left">
-				<div class="flaticon-upload" title="Upload a Meme">
-					
-					<span></span>
-				</div>
-			</div>
+		<div class="upload-btn-wrapper" title="Upload a Meme">
+			<form ref='uploadForm' 
+      		id='uploadForm' 
+      		action='/upload' 
+      		method='post' 
+      		encType="multipart/form-data">
+  			<button class="btn4" ><i class="flaticon-upload"></i></button>
+  				<input type="file" onchange="this.form.submit()" name="inputFile" />
+			</form>
 		</div>
-	</div>
 </div>
 	<!--================End Canvus Menu Area =================-->
 
