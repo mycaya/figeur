@@ -9,10 +9,11 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded())
 app.use(bodyParser.json())
 
+
 const s3 = new aws.S3({
-  accessKeyId: 'AKIA6NNN2THAIUWJYZJL',
-  secretAccessKey: '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',
-  region: 'us-east-2'
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: process.env.AWS_DEFAULT_REGION
 })
 
 const upload = multer({
