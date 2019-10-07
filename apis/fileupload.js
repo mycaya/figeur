@@ -43,7 +43,8 @@ router.post('/upload', upload.array('inputFile', 3), (req, res) => {
     const db = client.db('figeur')
     const collection = db.collection('memes')
             let doc = {
-                link: "https://figeur.s3.us-east-2.amazonaws.com/"+req.files[0].originalname
+                link: "https://figeur.s3.us-east-2.amazonaws.com/"+req.files[0].originalname,
+                'created_on' : new Date()
             };
             console.log(doc);
             collection.insert(doc, (err, doc) => {
