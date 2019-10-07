@@ -10,7 +10,7 @@ router.get('/memes', (req, res) => {
             }
         const db = client.db('figeur')
         const collection = db.collection('memes')
-        collection.find().sort({age:-1}).toArray((err, items) => {
+        collection.find().sort({age:1}).toArray((err, items) => {
         res.render(__dirname+'/memes.hbs', {
             items: items
         });
