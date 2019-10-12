@@ -33,6 +33,9 @@ app.use('/', seo);
 const fileupload = require('./apis/fileupload');
 app.use('/', fileupload);
 
+const memeshot = require('./apis/memeshot');
+app.use('/', memeshot);
+
 //const post = require('./apis/post');
 //app.use('/', post);
 

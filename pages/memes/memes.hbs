@@ -109,6 +109,32 @@
 		  </div>
 		</div>
 	  </div>
+	<script>
+  $.ajax({
+    url: 'http://localhost/memeshot',
+    //dataType:'json',
+    success: function(names){
+      var source = $('#tpl').html();
+      var template = Handlebars.compile(source);
+      var context = names;
+      $('.container').html(template(context));
+    }
+  });
+</script>
+
+<div id="users"></div>
+
+<script id="tpl" type="text/x-handlebars-template">
+  <ul>
+	{{#each items}}
+	  	<div style="background-color: #e0e0e0" class="wrapper style2">
+			<article id="main" class="imgcontainer special">
+				<a href="#" class="image featured"><img src="{{this.link}}" alt="" /></a>
+			</article>
+		</div>
+	{{/each}}
+  </ul>
+</script>
 	{{#each items}}
 	  	<div style="background-color: #e0e0e0" class="wrapper style2">
 			<article id="main" class="imgcontainer special">
@@ -117,6 +143,7 @@
 		</div>
 	{{/each}}
 	<!-- Optional JavaScript -->
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/theme.js"></script>
 	<script src="js/jquery-migrate-3.0.1.min.js"></script>
