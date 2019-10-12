@@ -33,8 +33,8 @@ app.use('/', seo);
 const fileupload = require('./apis/fileupload');
 app.use('/', fileupload);
 
-const post = require('./apis/post');
-app.use('/', post);
+//const post = require('./apis/post');
+//app.use('/', post);
 
 //const catchr = require('./apis/catchr');
 //app.use('/', catchr);

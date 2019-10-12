@@ -33,9 +33,10 @@ const upload = multer({
 })
 
 // Upload a file
-router.post('/upload', upload.array('inputFile', 3), (req, res) => {
+router.post('/upload', upload.array('files'/*maxnumberofuploads, 3*/), (req, res) => {
+  
   if (!req.files) res.status(400).json({ error: 'No files were uploaded.' })
-
+  req.files.forEach(function(thiselement, index){
   const url = 'mongodb://localhost:27017'
   mongo.connect(url, (err, client) => {
     if (err) {
@@ -44,13 +45,14 @@ router.post('/upload', upload.array('inputFile', 3), (req, res) => {
     const db = client.db('figeur')
     const collection = db.collection('memes')
             let doc = {
-                link: "https://figeur.s3.us-east-2.amazonaws.com/"+req.files[0].originalname,
+                link: "https://figeur.s3.us-east-2.amazonaws.com/"+thiselement.originalname,
                 'created_on' : new Date()
             };
             console.log(doc);
             collection.insert(doc, (err, doc) => {
             //res.json(doc);
             });
+});
 });
 res.redirect("/");
   /*res.status(201).json({
@@ -94,7 +96,7 @@ function uploadToS3(file) {
       });
   });
 }
-
+/*
 //var router = require('express').Router();
 router.post('/api/upload', function (req, res, next) {
     // This grabs the additional parameters so in this case passing in
@@ -133,7 +135,7 @@ router.post('/api/upload', function (req, res, next) {
     //Commented out to avoid res.json
     //req.pipe(busboy);
   })
-
+*/
   module.exports = router
 
 
