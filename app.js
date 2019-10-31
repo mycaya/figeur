@@ -5,6 +5,8 @@ var app = express();
 const router = express.Router();
 require('dotenv').config()
 
+var mongo = require('mongodb').MongoClient;
+
 app.set('view engine', 'hbs');
 
 //Redirect all traffic to login untill ADFS federation
@@ -34,7 +36,7 @@ const fileupload = require('./apis/fileupload');
 app.use('/', fileupload);
 
 const memeshot = require('./apis/memeshot');
-app.use('/', memeshot);
+app.use('/memeshot', memeshot);
 
 //const post = require('./apis/post');
 //app.use('/', post);
@@ -50,6 +52,24 @@ app.post('/catchr', function (req, res, next) {
     console.log('Hit catchr: '+(req.body));
     //res.send('Hit catchr: '+(JSON.stringify(req.body)));
     res.send('Hit catchr: '+ JSON.stringify(req.body));
+})
+
+//var router = require('express').Router();
+app.get('/memeshot', function (req, res, next) {
+    console.log('memeshot: '+(req.body));
+    //res.send('Hit memeshot: '+ req.body);
+   //res.send('Hit catchr: '+(JSON.stringify(req.body)));
+    const url = 'mongodb://localhost:27017'
+    mongo.connect(url, (err, client) => {
+        if (err) {
+            console.error(err)
+            }
+        const db = client.db('figeur')
+        const collection = db.collection('memes')
+        collection.find().sort({created_on:-1}).limit(2).toArray((err, items) => {
+    res.send(JSON.stringify(items));
+  });
+});
 })
 
 //Define port for app to listen on

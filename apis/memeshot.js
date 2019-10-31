@@ -8,10 +8,12 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded())
 app.use(bodyParser.json())
 
+
 //var router = require('express').Router();
 app.get('/memeshot', function (req, res, next) {
-      console.log('Hit catchr: '+(req.body));
-      //res.send('Hit catchr: '+(JSON.stringify(req.body)));
+      console.log('memeshot: '+(req.body));
+      res.send('Hit memeshot: '+ req.body);
+     //res.send('Hit catchr: '+(JSON.stringify(req.body)));
       const url = 'mongodb://localhost:27017'
       mongo.connect(url, (err, client) => {
           if (err) {
